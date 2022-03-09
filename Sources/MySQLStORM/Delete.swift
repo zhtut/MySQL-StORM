@@ -8,7 +8,7 @@
 
 import PerfectLib
 import StORM
-import PerfectLogger
+//import PerfectLogger
 
 /// Performs delete-specific functions as an extension
 extension MySQLStORM {
@@ -23,7 +23,7 @@ extension MySQLStORM {
 		do {
 			try exec(deleteSQL(self.table(), idName: idName), params: [String(id)])
 		} catch {
-			LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+			//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			self.error = StORMError.error("\(error)")
 			throw error
 		}
@@ -36,7 +36,7 @@ extension MySQLStORM {
 		do {
 			try exec(deleteSQL(self.table(), idName: idName), params: [id])
 		} catch {
-			LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+			//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			self.error = StORMError.error("\(error)")
 			throw error
 		}
@@ -49,7 +49,7 @@ extension MySQLStORM {
 		do {
 			try exec(deleteSQL(self.table(), idName: idName), params: [id.string])
 		} catch {
-			LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+			//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			self.error = StORMError.error("\(error)")
 			throw error
 		}

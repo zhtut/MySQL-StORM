@@ -7,7 +7,7 @@
 //
 
 import StORM
-import PerfectLogger
+//import PerfectLogger
 
 /// Extends the main class with update functions.
 extension MySQLStORM {
@@ -31,7 +31,7 @@ extension MySQLStORM {
 		do {
 			try exec(str, params: paramsString)
 		} catch {
-			LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+			//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			self.error = StORMError.error("\(error)")
 			throw error
 		}
@@ -54,7 +54,7 @@ extension MySQLStORM {
 		do {
 			return try update(cols: keys, params: vals, idName: idName, idValue: idValue)
 		} catch {
-			LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+			//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			throw StORMError.error("\(error)")
 		}
 	}

@@ -8,7 +8,7 @@
 
 
 import StORM
-import PerfectLogger
+//import PerfectLogger
 
 /// Convenience methods extending the main class.
 extension MySQLStORM {
@@ -20,7 +20,7 @@ extension MySQLStORM {
 		do {
 			try exec(deleteSQL(self.table(), idName: idname), params: [String(describing: idval)])
 		} catch {
-			LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+			//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			self.error = StORMError.error("\(error)")
 			throw error
 		}
@@ -32,7 +32,7 @@ extension MySQLStORM {
 		do {
 			try exec(deleteSQL(self.table(), idName: idname), params: [String(describing: id)])
 		} catch {
-			LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+			//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			self.error = StORMError.error("\(error)")
 			throw error
 		}
@@ -44,7 +44,7 @@ extension MySQLStORM {
 		do {
 			try select(whereclause: "\(idname) = ?", params: [String(describing: id)], orderby: [])
 		} catch {
-			LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+			//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			self.error = StORMError.error("\(error)")
 			throw error
 		}
@@ -56,7 +56,7 @@ extension MySQLStORM {
 		do {
 			try select(whereclause: "\(idname) = ?", params: [String(describing: idval)], orderby: [])
 		} catch {
-			LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+			//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			self.error = StORMError.error("\(error)")
 			throw error
 		}
@@ -76,7 +76,7 @@ extension MySQLStORM {
 		do {
 			try select(whereclause: set.joined(separator: " AND "), params: paramsString, orderby: [idname])
 		} catch {
-			LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+			//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			self.error = StORMError.error("\(error)")
 			throw error
 		}
@@ -97,7 +97,7 @@ extension MySQLStORM {
 		do {
 			try select(whereclause: set.joined(separator: " AND "), params: paramsString, orderby: [idname])
 		} catch {
-			LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+			//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			self.error = StORMError.error("\(error)")
 			throw error
 		}

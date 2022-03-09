@@ -8,7 +8,7 @@
 
 import StORM
 import PerfectMySQL
-import PerfectLogger
+//import PerfectLogger
 
 /// An extension to the main class providing SQL statement functions
 extension MySQLStORM {
@@ -19,7 +19,7 @@ extension MySQLStORM {
 			try exec(statement, params: params)
 		} catch {
 			if !MySQLConnector.quiet {
-				LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+				//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			}
 			self.error = StORMError.error("\(error)")
 			throw error
@@ -34,7 +34,7 @@ extension MySQLStORM {
 			return try execRows(statement, params: params)
 		} catch {
 			if !MySQLConnector.quiet {
-				LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+				//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			}
 			self.error = StORMError.error("\(error)")
 			throw error

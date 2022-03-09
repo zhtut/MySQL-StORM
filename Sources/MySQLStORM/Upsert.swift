@@ -7,7 +7,7 @@
 //
 
 import StORM
-import PerfectLogger
+//import PerfectLogger
 
 
 /// An extention ot the main class that provides MySQL-specific "ON CONFLICT UPDATE" functionality.
@@ -43,7 +43,7 @@ extension MySQLStORM {
 		do {
 			try exec(str, params: paramsString)
 		} catch {
-			LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+			//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			self.error = StORMError.error("\(error)")
 			throw error
 		}

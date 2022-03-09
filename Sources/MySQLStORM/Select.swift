@@ -7,7 +7,7 @@
 //
 
 import StORM
-import PerfectLogger
+//import PerfectLogger
 
 /// Provides select functions as an extension to the main class.
 extension MySQLStORM {
@@ -144,7 +144,7 @@ extension MySQLStORM {
 
 			//return results
 		} catch {
-			LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+			//LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
 			self.error = StORMError.error("\(error)")
 			throw error
 		}

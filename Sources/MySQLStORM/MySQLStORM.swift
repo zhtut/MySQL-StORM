@@ -8,7 +8,7 @@
 
 import StORM
 import PerfectMySQL
-import PerfectLogger
+//import PerfectLogger
 
 /// MySQLConnector sets the connection parameters for the PostgreSQL Server access
 /// Usage:
@@ -63,7 +63,9 @@ open class MySQLStORM: StORM, StORMProtocol {
     }
     
     private func printDebug(_ statement: String, _ params: [String]) {
-        if StORMdebug { LogFile.debug("StORM Debug: \(statement) : \(params.joined(separator: ", "))", logFile: "./StORMlog.txt") }
+        if StORMdebug {
+            //LogFile.debug("StORM Debug: \(statement) : \(params.joined(separator: ", "))", //LogFile: "./StORMlog.txt")
+        }
     }
     
     // Internal function which executes statements, with parameter binding
@@ -230,7 +232,7 @@ open class MySQLStORM: StORM, StORMProtocol {
                 try update(data: asData(1), idName: idname, idValue: idval)
             }
         } catch {
-            LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+            //LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
             throw StORMError.error("\(error)")
         }
     }
@@ -250,7 +252,7 @@ open class MySQLStORM: StORM, StORMProtocol {
                 try update(data: asData(1), idName: idname, idValue: idval)
             }
         } catch {
-            LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+            //LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
             throw StORMError.error("\(error)")
         }
     }
@@ -260,7 +262,7 @@ open class MySQLStORM: StORM, StORMProtocol {
         do {
             try insert(asData())
         } catch {
-            LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+            //LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
             throw StORMError.error("\(error)")
         }
     }
@@ -282,7 +284,7 @@ open class MySQLStORM: StORM, StORMProtocol {
     /// - Parameter str: create statement
     /// - Parameter defaultTypes: by default it is true so MySQLStORM decides for the type conversion. To be able to provide your own, you need to override the `subscript(key: String) -> String`
     open func setup(_ str: String = "", _ useDefaults: Bool? = true) throws {
-        LogFile.info("Running setup: \(table())", logFile: "./StORMlog.txt")
+        //LogFile.info("Running setup: \(table())", //LogFile: "./StORMlog.txt")
         var createStatement = str
         if str.count == 0 {
             var opt = [String]()
@@ -326,12 +328,14 @@ open class MySQLStORM: StORM, StORMProtocol {
             let keyComponent = ", PRIMARY KEY (`\(keyName)`)"
             
             createStatement = "CREATE TABLE IF NOT EXISTS \(table()) (\(opt.joined(separator: ", "))\(keyComponent));"
-            if StORMdebug { LogFile.info("createStatement: \(createStatement)", logFile: "./StORMlog.txt") }
+            if StORMdebug {
+                //LogFile.info("createStatement: \(createStatement)", //LogFile: "./StORMlog.txt")
+            }
         }
         do {
             try sql(createStatement, params: [])
         } catch {
-            LogFile.error("Error msg: \(error)", logFile: "./StORMlog.txt")
+            //LogFile.error("Error msg: \(error)", //LogFile: "./StORMlog.txt")
             throw StORMError.error("\(error)")
         }
     }
