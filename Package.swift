@@ -11,7 +11,7 @@ let package = Package(
 		.library(name: "MySQLStORM", targets: ["MySQLStORM"])
 	],
 	dependencies: [
-		.package(url: "https://github.com/zhtut/Perfect-MySQL.git", from: "3.0.0"),
+        .package(name:"PerfectMySQL", url: "https://github.com/zhtut/Perfect-MySQL.git", from: "3.0.0"),
 		.package(url: "https://github.com/zhtut/StORM.git", from: "3.0.0"),
 //		.package(url: "https://github.com/PerfectlySoft/Perfect-Logger.git", from: "3.0.0"),
 	],
